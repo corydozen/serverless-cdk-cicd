@@ -27,18 +27,18 @@ Once you've signed up and logged in with your root account (that's the username/
 (I've added some black rectangles to hide some personal info about my account.)
 
 1. Visit the [IAM console](https://console.aws.amazon.com/iam/home?#/users) and click on `Add User`
-   ![IAM Users](images/01_Iam_Users.png)
+   ![IAM Users](../images/01_Iam_Users.png)
 2. Then enter a name for the user (I chose `cdkuser`), and select only `Programmatic access`
-   ![Add User](images/02_Add_User.png)
+   ![Add User](../images/02_Add_User.png)
 3. Click on `Attach existing policies directly` and select `Administrator Access` and then click `Next: Tags`.
-   ![Add User](images/03_Set_Permissions.png)
+   ![Add User](../images/03_Set_Permissions.png)
    WARNING - This is not `AWS Best Practices` because your user should only have access to what they need. Giving them Administrator Access means they can use any AWS service on your behalf. Technically, we should spell out each service that the user should have access to. Perhaps I'll update this later...
 4. Click `Next: Review` (we don't need to add Tags).
 5. Click `Create User`
 6. Download the CSV
-   ![Download the CSV](images/04_Download_Csv.png)
+   ![Download the CSV](../images/04_Download_Csv.png)
    Your CSV should have an `Access key ID` and a `Secret access key` and look something like this...
-   ![Credentials.csv](images/05_Credentials.png)
+   ![Credentials.csv](../images/05_Credentials.png)
 7. Your user has been created!
 
 ### Install the aws-cli <a name="install-cli"></a>
@@ -72,11 +72,11 @@ To create a new repository...
 
 1. Visit [CodeCommit in the AWS Console](https://us-east-1.console.aws.amazon.com/codesuite/codecommit/repositories?region=us-east-1)
 2. Click `Create repository`
-   ![Create repository](images/06_Create_Repo.png)
+   ![Create repository](../images/06_Create_Repo.png)
 3. Give your repository a name (I chose `my-cdk-project`).
-   ![Name your repository](images/07_Name_Repo.png)
+   ![Name your repository](../images/07_Name_Repo.png)
 4. You should see something like this
-   ![Repo Confirmation](images/08_Repo_Confirmation.png)
+   ![Repo Confirmation](../images/08_Repo_Confirmation.png)
 
 ### Set up the structure for our project <a name="structure"></a>
 
