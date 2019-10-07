@@ -2,7 +2,7 @@
 
 ## Leveraging AWS to build full scale projects without having to manage any servers
 
-This will be a series of blog posts in which I will build a serverless project, CICD'ed, ready for iterative development.
+This will be a series of blog posts in which I will build a serverless `todo` app, CICD'ed, ready for iterative development.
 
 Proposed technologies:
 
@@ -23,7 +23,20 @@ Proposed technologies:
 
 I will be exploring this project as I go. So, it may not reach it's destination. But it will at least get close.
 
-To get started, go to [Step 1](01/)
+I'm going to try to avoid doing [this](https://www.youtube.com/watch?v=MAlSjtxy5ak).
+
+If you want to know a bit more about how I ended up here, read on. If not, go ahead and skip to [Step 1](01/).
+
+# Steps
+
+1. [Setup CDK and CodeCommit](01/)
+1. DynamoDb
+1. Cognito
+1. Appsync
+1. React / Redux / React Router
+1. S3 Static Hosted Site
+1. Enzyme testing
+1. Postman
 
 # A Journey to Serverless
 
@@ -47,21 +60,12 @@ But anyways, I sat with my EC2 instance for a LONG time. It still hosts a bunch 
 
 But then I learned about "serverless." The concept is that you just write your code or spell out your configuration, and somebody else worries about updating the underlying software. I don't have to check in to see how long my update list is any more! What's more, they have built-in tools to guard against DDoS attacks and SQL Injection and other problems that I hadn't even thought of before.
 
-So, that's the allure of Serverless. It allows the software architect to focus on architecting software, while not worrying about maintaining the underlying scaffolding of hardware and dependency software.
+So, that's the allure of Serverless. It allows the software architect to focus on architecting software, while worrying less about maintaining the underlying scaffolding of hardware and dependency software.
+
+### Assumptions
 
 In this series, I'll use AWS's CDK to build out a serverless application. I will assume that the reader ...
 
 1. understands how to develop hosted software using a frontend web client to call a backend api that uses authentication and a database
 1. is not afraid of the command line
 1. has a credit card (I promise you won't be charged much. Probably nothing.)
-
-# Steps
-
-1. [Setup CDK and CodeCommit](01/)
-1. DynamoDb
-1. Cognito
-1. Appsync
-1. React / Redux / React Router
-1. S3 Static Hosted Site
-1. Enzyme testing
-1. Postman
