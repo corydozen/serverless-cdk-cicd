@@ -22,6 +22,7 @@ But if you want to know why, here are the steps I took
 1. [CDK Code for the project](#cdk-code-project)
 1. [Configure the Cognito UserPool](#configure-cognito)
 1. [Create a UserPool App Client](#create-userpool-client)
+1. [Create an Identity Pool](#create-identity-pool)
 1. [Conclusion](#conclusion)
 
 ### Step 1: CDK Code for Cognito <a name="cdk-code-cognito"></a>
@@ -70,7 +71,7 @@ new DynamoDb(app, "DynamoDb", { env });
 new Cognito(app, "Cognito", { env });
 ```
 
-Then we'll `build`, `synth`, and `deploy`. However, since we now have multiple stacks definte, we'll need to specify which stack(s) we want to deploy.
+Then we'll `build`, `synth`, and `deploy`. However, since we now have multiple stacks defined, we'll need to specify which stack(s) we want to deploy.
 
 ```sh
 npm run build && cdk synth
@@ -89,7 +90,7 @@ I want a pretty lax password policy for this project. I don't want to require an
 
 Unfortunately, the folks in charge of the Cognito CDK npm package didn't expose any methods for implementing a non-default password policy configuration. However! If we dive under the hood a bit, we can figure it out.
 
-It turns out that when you create a `new cognito.UserPool`, there is a child object called `node` and that object has a child object named `defaultChild`. This is not exposed in the typescript libraries, so your IDE may bark at you. But if you look at [this line](cdk/lib/cognito.ts#L13), you can see that I'm casting this default child as a `CfnUserPool`.
+When you create a `new cognito.UserPool`, there is a child object called `node` and that object has a child object named `defaultChild`. This is not exposed in the typescript libraries, so your IDE may bark at you. But if you look at the first line in the snippet below, you can see that I'm casting this default child as a `CfnUserPool`.
 When you see a CDK class that with a `Cfn` prefix, it means that it is a CloudFormation resource. It's not quite as nice as a CDK resource, because you have to be a bit more verbose. But sometimes it's the only implemented way to get what you need.
 Anyways, I can attach my desired policy configuration to this `CfnUserPool` and we're on our way.
 
@@ -130,6 +131,32 @@ const cfnUserPoolClient = new cognito.CfnUserPoolClient(
 );
 ```
 
+### Step 5: Create an Identity Pool
+
+An Identity Pool will enable us to authorize our users to access other AWS resources. Here, we will create an IdentityPool with one Identity Provider: our UserPool. Later, we could add federated providers like Login With Facebook, or Login with Google, etc.
+
+```js
+const identitypool = new cognito.CfnIdentityPool(
+  this,
+  `${projectname}${env}IdentityPool`,
+  {
+    cognitoIdentityProviders: [
+      {
+        providerName: cfnUserPool.attrProviderName,
+        clientId: cfnUserPoolClient.ref
+      }
+    ],
+    allowUnauthenticatedIdentities: false
+  }
+);
+```
+
+By the way, if you're having trouble finding how to reference a resource's `Id`, try its `ref` property (as seen above). It seems to be a carry-over from CloudFormation's [Ref function](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ref.html).
+
+After `npm run build`ing and `cdk deploy TotoCognito`ing, you should be able to see your new Identity Pool in your [Cognito Console](https://console.aws.amazon.com/cognito/federated?region=us-east-1).
+
 ### Conclusion <a name="conclusion"></a>
 
-That's it. We can `npm run build && cdk synth` and then `cdk deploy TodoCognito` and our changes should show up in the Console.
+That's it. If you haven't already, you can `npm run build && cdk synth` and then `cdk deploy TodoCognito` and your changes should show up in the Console.
+
+If anything is unclear, @ me on [twitter](https://twitter.com/murribu).

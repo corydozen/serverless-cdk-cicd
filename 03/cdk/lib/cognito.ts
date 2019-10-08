@@ -32,5 +32,15 @@ export class Cognito extends cdk.Stack {
         generateSecret: false
       }
     );
+
+    const identitypool = new cognito.CfnIdentityPool(this, `TodoIdentityPool`, {
+      cognitoIdentityProviders: [
+        {
+          providerName: cfnUserPool.attrProviderName,
+          clientId: cfnUserPoolClient.ref
+        }
+      ],
+      allowUnauthenticatedIdentities: false
+    });
   }
 }
