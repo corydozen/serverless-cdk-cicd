@@ -6,4 +6,4 @@ import { DynamoDb } from "../lib/dynamodb";
 const env = { region: "us-east-1" };
 
 const app = new cdk.App();
-new DynamoDb(app, "DynamoDb", { env });
+new DynamoDb(app, "TodoDynamoDb", { env });
