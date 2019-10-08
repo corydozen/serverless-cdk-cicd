@@ -8,7 +8,7 @@ For this project, I'll be using DynamoDb to persist data. There are other option
 
 For this step and all the rest of the steps in this blog series, you can completely skip over everything by simply copying the directory into your project like so...
 
-```
+```sh
 cd ~/projects
 rm -rf my-cdk-project/*
 cp -R serverless-cdk-cicd/02/. my-cdk-project/
