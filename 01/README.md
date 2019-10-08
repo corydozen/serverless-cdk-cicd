@@ -1,10 +1,10 @@
 # A Serverless Project
 
-## Step 1 - CDK and Code Commit
+## Blog Post #1 - CDK and Code Commit
 
-For step 1, we're just going to get everything set up so we can have a vessel for our project.
+For the first blog post, we're just going to get everything set up so we can have a vessel for our project.
 
-There is some great documentation about how to get set up here. But I'll try to boil it down.
+There is some great documentation about how to get set up here. But I'll try to boil it down. Obviously, skip over any parts that you've already done or don't care about.
 
 1. [Sign up for AWS](#signup)
 1. [Create an IAM user to use for this project](#iam)
