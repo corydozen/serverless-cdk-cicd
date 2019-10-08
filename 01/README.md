@@ -113,7 +113,7 @@ Let's say you have a folder called `projects` where you will store some... proje
 cd projects
 mkdir my-cdk-project
 git clone https://github.com/corydozen/serverless-cdk-cicd
-cp -R serverless-cdk-cicd/01/ my-cdk-project
+cp -R serverless-cdk-cicd/01/. my-cdk-project/
 cd my-cdk-project
 git init
 git remote add origin https://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-cdk-project
@@ -140,11 +140,9 @@ If you don't care about this, [skip it](#conclusion)
 
 ```sh
 cd 01
-mkdir __testing__ build cdk public src
+mkdir cdk public src
 ```
 
-1. We will use the `__testing__` folder in [The Final Step](08/) of this tutorial to aid in the implementation of Postman testing
-1. The `build` folder will contain the built assets of the front end of our application
 1. The `cdk` folder will contain the code to generate our infrastructure
 1. The `public` folder will hold our `index.html` file - the entry point for our front end
 1. And the `src` folder will hold the source code for our front end application
@@ -170,10 +168,10 @@ touch public/index.html src/App.js src/index.js src/registerServiceWorker.js
 
 ```sh
 cd cdk
-cdk init lib
+cdk init app --language=typescript
 ```
 
-This installs some boilerplate code for developing within the CDK. By default, it uses typescript - and that's what we'll be using in this tutorial.
+This installs some boilerplate code for developing within the CDK. We'll be using typescript in this tutorial.
 
 ### Conclusion <a name="conclusion"></a>
 
