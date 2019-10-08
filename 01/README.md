@@ -127,9 +127,8 @@ You'll likely be prompted for a username and password. Use the credentials from 
 This is what you just did with the copy-and-paste...
 
 1. Clone this repo
-2. Copy the `01` folder into your empty project
-3. Commit the new code to your repo that you created earlier
-4. Install the dependencies with `npm`
+1. Copy the `01` folder into your empty project
+1. Commit the new code to your repo that you created earlier
 
 #### How I set up this project...
 
