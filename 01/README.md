@@ -2,7 +2,7 @@
 
 ## Step 1 - CDK and Code Commit
 
-For step 1, we're just going to get everything set up so we can
+For step 1, we're just going to get everything set up so we can have a vessel for our project.
 
 There is some great documentation about how to get set up here. But I'll try to boil it down.
 
@@ -12,16 +12,17 @@ There is some great documentation about how to get set up here. But I'll try to 
 1. [Set up that user in your CLI](#setup-cli)
 1. [Install the aws-cdk](#install-cdk)
 1. [Create a CodeCommit repository](#codecommit)
+1. [Create Git Credentials](#git-creds)
 1. [Set up the structure for our project (or just copy the files)](#structure)
 1. [Conclusion](#conclusion)
 
-### Sign up for AWS <a name="signup"></a>
+### Step 1: Sign up for AWS <a name="signup"></a>
 
 Follow [this article](https://aws.amazon.com/premiumsupport/knowledge-center/create-and-activate-aws-account/).
 
 You'll have to put in your credit card information. But if you follow this project, you shouldn't incur any charges. If you make a mistake here or there, you could end up spending as much at \$1.00.
 
-### Create an IAM user to use for this project <a name="iam"></a>
+### Step 2: Create an IAM user to use for this project <a name="iam"></a>
 
 Once you've signed up and logged in with your root account (that's the username/password that you used to create the account), follow these steps.
 
@@ -42,13 +43,13 @@ Once you've signed up and logged in with your root account (that's the username/
    ![Credentials.csv](../images/05_Credentials.png)
 7. Your user has been created!
 
-### Install the aws-cli <a name="install-cli"></a>
+### Step 3: Install the aws-cli <a name="install-cli"></a>
 
 Follow [these instructions](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) to install the AWS CLI
 
-### Set up that user in your CLI <a name="setup-cli"></a>
+### Step 4: Set up that user in your CLI <a name="setup-cli"></a>
 
-Refer to [this documentation](https://docs.aws.amazon.com/en_pv/cli/latest/userguide/cli-configure-files.html#cli-configure-files-where) to create a new file on your machine called `~/.aws/credentials` that has the following text...
+Create a new file on your machine called `~/.aws/credentials` that has the following text...
 
 ```
 [default]
@@ -58,7 +59,9 @@ aws_secret_access_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 
 But paste in your `Access key Id` and `Secret access key` from the csv that you downloaded instead of the example keys
 
-### Install the aws-cdk <a name="install-cdk"></a>
+For more information [click here](https://docs.aws.amazon.com/en_pv/cli/latest/userguide/cli-configure-files.html#cli-configure-files-where)
+
+### Step 5: Install the aws-cdk <a name="install-cdk"></a>
 
 1. If you don't have it already, install [npm](https://www.npmjs.com/get-npm).
 1. Then just `npm install -g aws-cdk`.
@@ -66,7 +69,7 @@ But paste in your `Access key Id` and `Secret access key` from the csv that you 
 
 Here's [more info](https://docs.aws.amazon.com/en_pv/cdk/latest/guide/getting_started.html) if you need it.
 
-### Create a CodeCommit repository <a name="codecommit"></a>
+### Step 6: Create a CodeCommit repository <a name="codecommit"></a>
 
 AWS has a service called CodeCommit. It's a lot like GitHub or GitLab.
 To create a new repository...
@@ -81,11 +84,28 @@ To create a new repository...
 1. You should see something like this
    ![Repo Confirmation](../images/08_Repo_Confirmation.png)
 
-### Set up the structure for our project <a name="structure"></a>
+### Step 7: Create Git Credentials <a name="git-creds"></a>
+
+1. Go to [Users](https://console.aws.amazon.com/iam/home?region=us-east-1#/users) in the IAM Service of the AWS Console.
+1. Click on the user you created (mine was `cdkuser`)
+1. Click on `Security credentials`
+   ![User](../images/09_User.png)
+1. Scroll to the bottom and click on `Generate` under `HTTPS Git credentials for AWS CodeCommit`
+   ![Security Credentials](../images/10_Security_Credentials.png)
+1. Click on `Download Credentials`
+   ![Generate Credentials](../images/11_Generate_Credentials.png)
+1. Your csv should look something like this
+   ![Downloaded Credentials](../images/12_Git_Credentials_Csv.png)
+
+You'll need this username and password in the next step
+
+[Here is the official AWS documentation for creating git credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html?icmpid=docs_acc_console_connect_np)
+
+### Step 8: Set up the structure for our project <a name="structure"></a>
 
 I recommend copy-and-pasting the following blocks of code to get started. If you keep reading, you'll see why I created each of these folders and files.
 
-#### Copy and pasta
+#### Copy and paste
 
 Let's say you have a folder called `projects` where you will store some... projects.
 
@@ -93,22 +113,18 @@ Let's say you have a folder called `projects` where you will store some... proje
 cd projects
 mkdir my-cdk-project
 git clone https://github.com/corydozen/serverless-cdk-cicd
-cp -R serverless-cdk-cicd\01\ my-cdk-project
+cp -R serverless-cdk-cicd/01/ my-cdk-project
 cd my-cdk-project
 git init
-git remote add origin ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-cdk-project
+git remote add origin https://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-cdk-project
 git add .
 git commit -m "Step 1"
-```
-
-You'll need the username and password for the aws account you set up (my username was `cdkuser`)
-
-```sh
 git push origin master
-npm i
-cd cdk
-npm i
 ```
+
+You'll likely be prompted for a username and password. Use the credentials from the csv that you downloaded in Step 7
+
+This is what you just did with the copy-and-paste...
 
 1. Clone this repo
 2. Copy the `01` folder into your empty project
