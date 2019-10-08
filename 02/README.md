@@ -4,7 +4,7 @@
 
 DynamoDb is AWS's NoSQL database service. [Here is AWS's overview](https://aws.amazon.com/dynamodb/).
 
-For this project, I'll be using DynamoDb to persist data. There are other options, like RDS, or running an EC2 instance with MySQL or Postgres. But I chose DynamoDb for its ease of infrastructure management, its speed, and its low cost.
+For this project, I'll be using DynamoDb to persist data. There are other options, like [RDS](https://aws.amazon.com/rds/), or running an [EC2](https://aws.amazon.com/ec2/) instance with MySQL or Postgres. But I chose DynamoDb for its ease of infrastructure management, its speed, and its low cost.
 
 For this step and all the rest of the steps in this blog series, you can completely skip over everything by simply copying the directory into your project like so...
 
@@ -58,7 +58,7 @@ If you compare this file to the `cdk/lib/cdk-stack.ts` file that was auto genera
 
 To read more about AWS's DynamoDb CDK npm package, [here is a link to the documentation](https://docs.aws.amazon.com/cdk/api/latest/docs/aws-dynamodb-readme.html).
 
-### Step 4: CDK Code for the project <a name="cdk-code-project"></a>
+### Step 2: CDK Code for the project <a name="cdk-code-project"></a>
 
 The entry point for our CDK project is the `cdk/bin/cdk.ts` file. I need to import my newly created `dynamodb.ts` file and instantiate a new instance of that class.
 
@@ -101,7 +101,7 @@ For the rest of this blog series, I will combine these two commands and just run
 npm run build && cdk synth
 ```
 
-### Step 3: Deploy <a name="deploy"></a>
+### Step 4: Deploy <a name="deploy"></a>
 
 ```sh
 cdk deploy
@@ -134,7 +134,7 @@ And if you visit the [CloudFormation Console](https://console.aws.amazon.com/clo
 And now you have a DynamoDb table in your account. Visit [DynamoDb in the AWS Console](https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:) to see it. It should look something like this:
 ![CloudFormation Create In Progress](../images/14_Dynamo_New_Table.png)
 
-### Auto Scaling <a name="auto-scaling"></a>
+### Step 5: Auto Scaling <a name="auto-scaling"></a>
 
 DynamoDb has a nifty new(ish) feature called auto scaling. Basically, it means you don't have to guess at your provisioned capacity - AWS will just adjust it for you as the demand increases or decrease. If that doesn't make sense, don't worry about it. [Or do](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html). It's not essential for this blog series. But I am going to add some code to my `cdk/lib/dynamodb.ts` file after the `new dynamodb.Table...` declaration.
 
@@ -160,7 +160,7 @@ writeScaling.scaleOnUtilization({
 
 This basically says that I'm willing for the table to be scaled up to 50 capacity units for read and/or write. And please aim to keep the utilization at around 70%.
 
-### Re-deploy <a name="re-deploy"></a>
+### Step 6: Re-deploy <a name="re-deploy"></a>
 
 We already have our table. But now we've made a change to it in the code. We need to deploy those changes.
 The way you do that is exactly the same as if you were deploying it for the first time
@@ -170,11 +170,11 @@ npm run build && cdk synth
 cdk deploy
 ```
 
-The difference is that the CDK (or maybe CloudFormation) will see that your table already exists, and it will only deploy a [changeset](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html). This way you don't have to wait for everything to be re-built any time you want to make a change. We only have one table now, so it's not a big deal. But once you have a bunch of resource, this will make a large difference.
+The difference is that the CDK (or maybe CloudFormation) will see that your table already exists, and it will only deploy a [changeset](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-changesets.html). This way you don't have to wait for everything to be re-built any time you want to make a change. We only have one table now, so it's not a big deal. But once you have a bunch of resources, this will make a large difference.
 
 ### Conclusion <a name="conclusion"></a>
 
-Now you have built a DynamoDb table that autoscales. And it's definition is written in code and can be deployed in anyone's AWS account.
+Now you have built a DynamoDb table that autoscales. And its definition is written in code and can be deployed in anyone's AWS account.
 
 As I said in the first blog post, I hope this made sense. But if not, hit me up on [twitter](https://twitter.com/murribu), or file an issue/pr on this repo.
 
