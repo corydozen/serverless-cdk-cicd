@@ -37,7 +37,8 @@ In this series, I'll use AWS's CDK to build out a serverless application. I will
 
 1. [Setup CDK and CodeCommit](01/)
 1. [DynamoDb](02/)
-1. Cognito
+1. [Cognito](03/)
+1. [Lambda](04/)
 1. Appsync
 1. React / Redux / React Router
 1. S3 Static Hosted Site
