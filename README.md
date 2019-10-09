@@ -4,27 +4,6 @@
 
 This will be a series of blog posts in which I will build a serverless `todo` app, CICD'ed, ready for iterative development.
 
-Proposed technologies:
-
-- AWS CDK
-- AWS DynamoDb
-- AWS Appsync
-- AWS Cognito
-- AWS S3
-- AWS CodeCommit
-- AWS CodeBuild
-- AWS CodeDeploy
-- AWS CodePipeline
-- ReactJS
-- Redux
-- React Router
-- Enzyme
-- Postman
-
-I will be exploring this project as I go. So, it may not reach it's destination. But it will at least get close.
-
-I'm going to try to avoid doing [this](https://www.youtube.com/watch?v=MAlSjtxy5ak).
-
 # Assumptions
 
 In this series, I'll use AWS's CDK to build out a serverless application. I will assume that the reader ...
@@ -45,6 +24,27 @@ In this series, I'll use AWS's CDK to build out a serverless application. I will
 1. S3 Static Hosted Site
 1. Enzyme testing
 1. Postman
+
+# Here are some of the services I'll be using
+
+- AWS CDK
+- AWS DynamoDb
+- AWS Appsync
+- AWS Cognito
+- AWS S3
+- AWS CodeCommit
+- AWS CodeBuild
+- AWS CodeDeploy
+- AWS CodePipeline
+- ReactJS
+- Redux
+- React Router
+- Enzyme
+- Postman
+
+I will be exploring this project as I go. So, it may not reach it's destination. But it will at least get close.
+
+I'm going to try to avoid doing [this](https://www.youtube.com/watch?v=MAlSjtxy5ak).
 
 If you want to know a bit more about how I ended up here, read on. If not, go ahead and skip to [Step 1](01/).
 
@@ -71,3 +71,5 @@ But anyways, I sat with my EC2 instance for a LONG time. It still hosts a bunch 
 But then I learned about "serverless." The concept is that you just write your code or spell out your configuration, and somebody else worries about updating the underlying software. I don't have to check in to see how long my update list is any more! What's more, they have built-in tools to guard against DDoS attacks and SQL Injection and other problems that I hadn't even thought of before.
 
 So, that's the allure of Serverless. It allows the software architect to focus on architecting software, while worrying less about maintaining the underlying scaffolding of hardware and dependency software.
+
+If you're interested how the rubber meets the road, head on over to [Step 1](01/).
