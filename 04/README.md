@@ -274,3 +274,5 @@ cdk bootstrap aws://64REDACTED88/us-east-1
 You should now be able to click around in your [Cognito Console](https://console.aws.amazon.com/cognito/users/?region=us-east-1), [Lambda Console](https://console.aws.amazon.com/lambda/home?region=us-east-1#/functions), and [DynamoDb Console](https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:) and see all of your shiny new resources.
 
 If anything is unclear, @ me on [twitter](https://twitter.com/murribu) or file an issue/pr on this repo.
+
+You're ready for [Step 5](../05)
