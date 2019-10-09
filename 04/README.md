@@ -252,6 +252,8 @@ cdk deploy TodoCognito
 Since there are security changes in our deployment, you will be given an "Are you sure?" prompt that will look something like this:
 ![Are you sure?](../images/17_Console_Are_You_Sure.png)
 
+Or you can add the `--require-approval never` parameter, and the CDK will forego this check.
+
 Also, if you get an error that looks something like this
 ![Console Bootstrap Error](../images/18_Console_Bootstrap_Error.png)
 
