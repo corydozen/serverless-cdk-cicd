@@ -78,3 +78,7 @@ You'll notice that I started the `roleName`s with an `a`. This was because in th
 ### Conclusion <a name="conclusion"></a>
 
 I realize this post was basically "just copy and paste this stuff and it should work." But there is a lot of in-the-weeds IAM stuff going on here. And that is outside the scope of what I want to cover in this series.
+
+So our infrastructure is officially built! Hooray! In the [next step](../08), we'll start building a front end for this thing.
+
+If anything is unclear, @ me on [twitter](https://twitter.com/murribu) or file an issue/pr on this repo.
