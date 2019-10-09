@@ -11,13 +11,18 @@ exports.handler = async (event: any, serverlessContext: lambda.Context) => {
     const Item = {
       PK: { S: "user" + event.request.userAttributes["sub"] },
       SK: { S: "user" + dateAsIso },
-      firstName: event.request.userAttributes["custom:first_name"],
-      lastName: event.request.userAttributes["custom:last_name"],
-      organization: event.request.userAttributes["custom:organization"],
-      email: event.request.userAttributes["email"]
+      firstName: { S: event.request.userAttributes["custom:first_name"] },
+      lastName: { S: event.request.userAttributes["custom:last_name"] },
+      email: { S: event.request.userAttributes["email"] }
     };
-    const data = await dynamoClient.transactWriteItems({
-      TransactItems: [{ Put: { Item, TableName, ConditionExpression } }]
+    const data = await dynamoClient
+      .transactWriteItems({
+        TransactItems: [{ Put: { Item, TableName, ConditionExpression } }]
+      })
+      .promise();
+    console.log({
+      statusCode: 200,
+      body: JSON.stringify({ Item, data })
     });
   } catch (error) {
     console.log({ statusCode: 400, error });
