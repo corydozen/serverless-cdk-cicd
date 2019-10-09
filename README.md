@@ -19,7 +19,8 @@ In this series, I'll use AWS's CDK to build out a serverless application. I will
 1. [Cognito](03/)
 1. [Lambda](04/)
 1. [Test what we have so far](05/)
-1. Appsync
+1. [Appsync](06/)
+1. Cognito Permissions
 1. React / Redux / React Router
 1. S3 Static Hosted Site
 1. Enzyme testing

@@ -1,0 +1,20 @@
+type Mutation {
+  updateProfile(firstName: String, lastName: String): User
+}
+
+type Query {
+  fetchMyProfile: [User]
+}
+
+type User {
+  PK: String
+  SK: String
+  firstName: String
+  lastName: String
+  email: String
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+}
