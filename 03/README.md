@@ -159,4 +159,4 @@ After `npm run build`ing and `cdk deploy TotoCognito`ing, you should be able to 
 
 That's it. If you haven't already, you can `npm run build && cdk synth` and then `cdk deploy TodoCognito` and your changes should show up in the Console.
 
-If anything is unclear, @ me on [twitter](https://twitter.com/murribu).
+If anything is unclear, @ me on [twitter](https://twitter.com/murribu) or file an issue/pr on this repo.
