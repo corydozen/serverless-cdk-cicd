@@ -5,7 +5,7 @@
     "expression": "PK = :id and begins_with(SK, :user)",
     "expressionValues": {
       ":id": { "S": "user$ctx.identity.sub" },
-      ":user": {"S": "user"}
+      ":user": {"S": "user" }
     }
   }
 }
