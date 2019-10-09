@@ -13,8 +13,8 @@ interface PropsFromCognito {
 }
 
 interface CognitoIamProps {
-  appsync: AppsyncProps;
-  cognito: CognitoProps;
+  appsync: PropsFromAppsync;
+  cognito: PropsFromCognito;
   stackProps: cdk.StackProps;
 }
 
