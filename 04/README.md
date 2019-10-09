@@ -254,7 +254,9 @@ Since there are security changes in our deployment, you will be given an "Are yo
 
 Or you can add the `--require-approval never` parameter, and the CDK will forego this check.
 
-Also, if you get an error that looks something like this
+#### Troubleshooting
+
+If you get an error that looks something like this
 ![Console Bootstrap Error](../images/18_Console_Bootstrap_Error.png)
 
 You can run the following command to resolve it:
