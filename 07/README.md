@@ -17,6 +17,7 @@ cp -R serverless-cdk-cicd/07/. my-cdk-project/
 
 1. [Import Appsync and Cognito Data](#import)
 1. [Create Roles](#create-roles)
+1. [Deploy](#deploy)
 1. [Conclusion](#conclusion)
 
 ### Step 1: Import Appsync and Cognito Data <a name="import"></a>
@@ -74,6 +75,16 @@ There's a lot here, but I'm basically telling the Identity Pool that I want unau
 To see it all spelled out, view the [cognito-iam.ts file](cdk/lib/cognito-iam.ts).
 
 You'll notice that I started the `roleName`s with an `a`. This was because in the Cognito Console, it only shows a certain number of roles. If you have a bunch of roles in your account, it may not get to the `T`s and it will look like your IdentityPool doesn't have roles attached to it. :(
+
+### Step 3: Deploy <a name="deploy"></a>
+
+```sh
+cd cdk
+npm run build && cdk synth
+cdk deploy Todo*
+```
+
+This should push all of your changes to your AWS environment
 
 ### Conclusion <a name="conclusion"></a>
 
