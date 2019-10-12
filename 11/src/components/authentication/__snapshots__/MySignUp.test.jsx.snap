@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmSignIn normal case render correctly with Props confirmSignUp 1`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn normal case render correctly with Props confirmSignUp 2`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn normal case render correctly with hide 1`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn normal case render correctly with hide 2`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn null case with other authState render corrently 1`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn null case with other authState render corrently 2`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn null case with other authState render corrently 3`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn null case with other authState render corrently 4`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn null case with other authState render corrently 5`] = `ShallowWrapper {}`;
+
+exports[`ConfirmSignIn null case with other authState render corrently 6`] = `ShallowWrapper {}`;
+
+exports[`signUp with signUpConfig render correctly with authState signUp 1`] = `ShallowWrapper {}`;
+
+exports[`signUp with signUpConfig render correctly with authState signUp 2`] = `ShallowWrapper {}`;
+
+exports[`signUp with signUpConfig render correctly with hide 1`] = `ShallowWrapper {}`;
+
+exports[`signUp with signUpConfig render correctly with hide 2`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop normal case render correctly with authState signUp 1`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop normal case render correctly with authState signUp 2`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop normal case render correctly with hide 1`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop normal case render correctly with hide 2`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop null case with other authState render corrently 1`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop null case with other authState render corrently 2`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop null case with other authState render corrently 3`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop null case with other authState render corrently 4`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop null case with other authState render corrently 5`] = `ShallowWrapper {}`;
+
+exports[`signUp without signUpConfig prop null case with other authState render corrently 6`] = `ShallowWrapper {}`;
