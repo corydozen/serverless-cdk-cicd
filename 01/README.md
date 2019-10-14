@@ -96,7 +96,7 @@ git clone https://github.com/corydozen/serverless-cdk-cicd
 cp -R serverless-cdk-cicd\01\ my-cdk-project
 cd my-cdk-project
 git init
-git remote add origin ssh://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-cdk-project
+git remote add origin https://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-cdk-project
 git add .
 git commit -m "Step 1"
 ```
