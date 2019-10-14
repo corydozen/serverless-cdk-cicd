@@ -67,6 +67,8 @@ const env = config.environment;
 Then change all the stack names to use the `proj` and `env` variables.
 For example, "TodoDynamoDb" becomes `${proj}${env}DynamoDb`
 
+We'll need to do the same thing for the resources that are created within the stacks. For example, our DynamoDb which was "Todos" becomes `${proj}${env}Todos`
+
 ### Step 4: Store your Postman API Key as a secret in CodeBuild <a name="secret"></a>
 
 We're going to need our Postman API Key available to us in the build, so we should store it as a secret environment variable.
