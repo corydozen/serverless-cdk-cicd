@@ -5,14 +5,14 @@ phases:
       nodejs: 10
     commands:
       - npm i -g aws-cdk newman
-      - 'curl --location --request GET "https://api.getpostman.com/collections/2262357-cde6307e-8b84-446a-a7ef-26e8e65a96d0" --header "X-Api-Key: $POSTMANAPIKEY" -o _testing/ReinventCatalog.postman_collection.json'
+      - 'curl --location --request GET "https://api.getpostman.com/collections/141384-a44305f1-37cd-44bc-ba3d-721bf6b1b634" --header "X-Api-Key: $POSTMANAPIKEY" -o _testing/Todos.postman_collection.json'
   build:
     commands:
       - cp cdk/config.example.ts cdk/config.ts
       - sed "s/environment\:\ \"Dev\"/environment\:\ \"Testing\"/" cdk/config.example.ts > cdk/config.ts
       - chmod +x cicd-deploy.sh
       - ./cicd-deploy.sh
-      - newman run _testing/ReinventCatalog.postman_collection.json -e _testing/Testing.postman_environment.json
+      - newman run _testing/Todos.postman_collection.json -e _testing/Testing.postman_environment.json
       - npm run citest
   post_build:
     commands:

@@ -77,10 +77,16 @@ Find your Build in your [CodeBuild Console](https://us-east-1.console.aws.amazon
 Then click on "Additional configuration"
 ![CodeBuild Additional Configuration](../images/65_CodeBuild_Additional_Configuration.png)
 
-Scroll to the bottom and enter `POSTMANAPIKEY` for the variable name, enter your Postman API Key from [Step 11](../11#api-key), and select Parameter (instead of Plaintext).
-![CodeBuild Additional Configuration](../images/66_CodeBuild_Add_Environment_Variable.png)
+Scroll to the bottom and click on `Create parameter`
 
-Then click `Update environment`.
+Enter `POSTMANAPIKEY` for the parameter's name and your Postman API Key from [Step 11](../11#api-key) as the `Value`. Then click `Create parameter`
+![CodeBuild Create Parameter](../images/70_CodeBuild_Create_Parameter.png)
+
+That should show you something like this
+![CodeBuild Parameter Created](../images/71_CodeBuild_Parameter_Created.png)
+
+Then enter `POSTMANAPIKEY` for the Name of the variable that was just created and click `Update environment`
+![CodeBuild Update Environment](../images/72_CodeBuild_Update_Environment.png)
 
 ### Step 5: Create a buildspec.yml file <a name="buildspec"></a>
 
@@ -127,7 +133,13 @@ You'll need to enter the Git Credentials that you created way back in [Step 1](#
 And then go to your [CodeBuild Console](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) and select your Build.
 
 Click `Start Build`
-![CodeBuild Additional Configuration](../images/67_CodeBuild_Start_Build.png)
+![CodeBuild Start Build](../images/67_CodeBuild_Start_Build.png)
+
+Then leave all the defaults in place and click `Start build`
+![CodeBuild Leave Defaults](../images/68_CodeBuild_Leave_Defaults.png)
+
+You can then watch the build's logs in the web browser
+![CodeBuild Log](../images/69_CodeBuild_Log.png)
 
 ### Conclusion
 
