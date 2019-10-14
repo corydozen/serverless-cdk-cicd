@@ -25,21 +25,21 @@ export class Appsync extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: AppsyncProps) {
     super(scope, id, props.stackProps);
 
-    this.api = new appsync.CfnGraphQLApi(this, "TodoAPI", {
+    this.api = new appsync.CfnGraphQLApi(this, `${proj}${env}API`, {
       authenticationType: "AMAZON_COGNITO_USER_POOLS",
       userPoolConfig: {
         awsRegion: "us-east-1",
         userPoolId: props.cognito.userpool.userPoolId,
         defaultAction: "ALLOW"
       },
-      name: "TodoAPI"
+      name: `${proj}${env}API`
     });
 
     const self = this;
 
     fs.readFile("./assets/appsync/schema.graphql", "utf8", function(err, data) {
       if (err) throw err;
-      new appsync.CfnGraphQLSchema(self, "TodoSchema", {
+      new appsync.CfnGraphQLSchema(self, `${proj}${env}Schema`, {
         apiId: self.api.attrApiId,
         definition: data
       });
@@ -63,14 +63,14 @@ export class Appsync extends cdk.Stack {
     );
     policyDocument.addStatements(policyStatement);
 
-    const role = new iam.Role(this, "TodoRoleAppsyncDS", {
+    const role = new iam.Role(this, `${proj}${env}RoleAppsyncDS`, {
       assumedBy: new iam.ServicePrincipal("appsync.amazonaws.com"),
       inlinePolicies: { dynamoDSPolicyDocument: policyDocument }
     });
 
-    const ds = new appsync.CfnDataSource(this, "TodoDataSource", {
+    const ds = new appsync.CfnDataSource(this, `${proj}${env}DataSource`, {
       apiId: this.api.attrApiId,
-      name: "TodoDataSource",
+      name: `${proj}${env}DataSource`,
       type: "AMAZON_DYNAMODB",
       dynamoDbConfig: {
         awsRegion: "us-east-1",
@@ -89,7 +89,7 @@ export class Appsync extends cdk.Stack {
           "utf8",
           function(err, responseTemplate) {
             if (err) throw err;
-            new appsync.CfnResolver(self, "TodoFetchMyProfile", {
+            new appsync.CfnResolver(self, `${proj}${env}FetchMyProfile`, {
               apiId: self.api.attrApiId,
               fieldName: "fetchMyProfile",
               typeName: "Query",

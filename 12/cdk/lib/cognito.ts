@@ -4,6 +4,11 @@ import dynamodb = require("@aws-cdk/aws-dynamodb");
 import iam = require("@aws-cdk/aws-iam");
 import lambda = require("@aws-cdk/aws-lambda");
 
+import { config } from "../config";
+
+const proj = config.projectname;
+const env = config.environment;
+
 interface PropsFromDynamoDb {
   table: dynamodb.Table;
 }
@@ -19,7 +24,7 @@ export class Cognito extends cdk.Stack {
   constructor(scope: cdk.Construct, id: string, props: CognitoProps) {
     super(scope, id, props.stackProps);
 
-    this.userpool = new cognito.UserPool(this, `TodoUserPool`, {
+    this.userpool = new cognito.UserPool(this, `${proj}${env}TodoUserPool`, {
       signInType: cognito.SignInType.EMAIL,
       autoVerifiedAttributes: [cognito.UserPoolAttribute.EMAIL]
     });
@@ -64,7 +69,7 @@ export class Cognito extends cdk.Stack {
 
     const cfnUserPoolClient = new cognito.CfnUserPoolClient(
       this,
-      "TodoUserPoolClient",
+      `${proj}${env}TodoUserPoolClient`,
       {
         clientName: "web",
         userPoolId: this.userpool.userPoolId,
@@ -72,15 +77,19 @@ export class Cognito extends cdk.Stack {
       }
     );
 
-    this.identitypool = new cognito.CfnIdentityPool(this, `TodoIdentityPool`, {
-      cognitoIdentityProviders: [
-        {
-          providerName: cfnUserPool.attrProviderName,
-          clientId: cfnUserPoolClient.ref
-        }
-      ],
-      allowUnauthenticatedIdentities: false
-    });
+    this.identitypool = new cognito.CfnIdentityPool(
+      this,
+      `${proj}${env}TodoIdentityPool`,
+      {
+        cognitoIdentityProviders: [
+          {
+            providerName: cfnUserPool.attrProviderName,
+            clientId: cfnUserPoolClient.ref
+          }
+        ],
+        allowUnauthenticatedIdentities: false
+      }
+    );
 
     const fnCreateUser = new lambda.Function(this, "TodoCreateUser", {
       runtime: lambda.Runtime.NODEJS_10_X,
@@ -96,9 +105,13 @@ export class Cognito extends cdk.Stack {
 
     const createUserLambdaRole = fnCreateUser.role as iam.Role;
 
-    const policyDynamoTable = new iam.Policy(this, "ToDoPolicyLambdaToDynamo", {
-      policyName: "ToDoPolicyLambdaToDynamo"
-    });
+    const policyDynamoTable = new iam.Policy(
+      this,
+      `${proj}${env}ToDoPolicyLambdaToDynamo`,
+      {
+        policyName: `${proj}${env}ToDoPolicyLambdaToDynamo`
+      }
+    );
 
     const policyStatement = new iam.PolicyStatement({
       effect: iam.Effect.ALLOW,

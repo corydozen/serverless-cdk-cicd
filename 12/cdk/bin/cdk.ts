@@ -7,26 +7,26 @@ import { Appsync } from "../lib/appsync";
 import { CognitoIam } from "../lib/cognito-iam";
 import { S3 } from "../lib/s3";
 
-import config from "../config";
+import { config } from "../config";
 
 const proj = config.projectname;
-const env = config.environment;
-const stackEnv = { region: "us-east-1" };
+const envname = config.environment;
+const env = { region: "us-east-1" };
 
 const app = new cdk.App();
-const dynamodb = new DynamoDb(app, `${proj}${env}DynamoDb`, { stackEnv });
-const cognito = new Cognito(app, `${proj}${env}Cognito`, {
-  stackProps: { stackEnv },
+const dynamodb = new DynamoDb(app, `${proj}${envname}DynamoDb`, { env });
+const cognito = new Cognito(app, `${proj}${envname}Cognito`, {
+  stackProps: { env },
   dynamodb
 });
-const appsync = new Appsync(app, `${proj}${env}Appsync`, {
-  stackProps: { stackEnv },
+const appsync = new Appsync(app, `${proj}${envname}Appsync`, {
+  stackProps: { env },
   cognito,
   dynamodb
 });
-new CognitoIam(app, `${proj}${env}CognitoIam`, {
-  stackProps: { stackEnv },
+new CognitoIam(app, `${proj}${envname}CognitoIam`, {
+  stackProps: { env },
   appsync,
   cognito
 });
-new S3(app, `${proj}${env}S3`, { stackEnv });
+new S3(app, `${proj}${envname}S3`, { env });

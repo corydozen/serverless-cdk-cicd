@@ -59,7 +59,7 @@ export class CognitoIam extends cdk.Stack {
     );
     cognitoAuthPolicyDocument.addStatements(appsyncAuthPolicyStatement);
 
-    const unauthRole = new iam.Role(this, `TodoUnauthRole`, {
+    const unauthRole = new iam.Role(this, `${proj}${env}UnauthRole`, {
       assumedBy: new iam.FederatedPrincipal(
         "cognito-identity.amazonaws.com",
         {
@@ -72,13 +72,13 @@ export class CognitoIam extends cdk.Stack {
         },
         "sts:AssumeRoleWithWebIdentity"
       ),
-      roleName: `aTodoUnauthRole`,
+      roleName: `a${proj}${env}UnauthRole`,
       inlinePolicies: {
         unauthPolicyDocument: unauthPolicyDocument
       }
     });
 
-    const authRole = new iam.Role(this, `TodoAuthRole`, {
+    const authRole = new iam.Role(this, `${proj}${env}AuthRole`, {
       assumedBy: new iam.FederatedPrincipal(
         "cognito-identity.amazonaws.com",
         {
@@ -97,12 +97,16 @@ export class CognitoIam extends cdk.Stack {
       }
     });
 
-    new cognito.CfnIdentityPoolRoleAttachment(this, `TodoRoleAttachment`, {
-      identityPoolId: props.cognito.identitypool.ref,
-      roles: {
-        unauthenticated: unauthRole.roleArn,
-        authenticated: authRole.roleArn
+    new cognito.CfnIdentityPoolRoleAttachment(
+      this,
+      `${proj}${env}RoleAttachment`,
+      {
+        identityPoolId: props.cognito.identitypool.ref,
+        roles: {
+          unauthenticated: unauthRole.roleArn,
+          authenticated: authRole.roleArn
+        }
       }
-    });
+    );
   }
 }
