@@ -2,7 +2,7 @@
 
 ## Leveraging AWS to build full scale projects without having to manage any servers
 
-This will be a series of blog posts in which I will build a serverless `todo` app, CICD'ed, ready for iterative development.
+This will be a series of blog posts in which I will build a serverless `todo` app, ready to be CICD'ed and iteratively developed.
 
 # Assumptions
 
@@ -11,6 +11,9 @@ In this series, I'll use AWS's CDK to build out a serverless application. I will
 1. understands how to develop hosted software using a frontend web client to call a backend api that uses authentication and a database
 1. is not afraid of the command line
 1. has a credit card (I promise you won't be charged much. Probably nothing.)
+1. will use the us-east-1 region for all resources
+
+If you want to use a different region, just switch out us-east-1 for your region whereever you see it in this blog series.
 
 # Steps
 
@@ -25,7 +28,7 @@ In this series, I'll use AWS's CDK to build out a serverless application. I will
 1. [S3 Static Hosted Site](09/)
 1. [Enzyme testing](10/)
 1. [Postman](11/)
-1. CodeBuild
+1. [CodeBuild](12/)
 
 # Here are some of the services I'll be using
 

@@ -1,0 +1,20 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - npm i -g aws-cdk newman
+      - 'curl --location --request GET "https://api.getpostman.com/collections/2262357-cde6307e-8b84-446a-a7ef-26e8e65a96d0" --header "X-Api-Key: $API_KEY" -o _testing/ReinventCatalog.postman_collection.json'
+  build:
+    commands:
+      - cp cdk/config.example.ts cdk/config.ts
+      - sed "s/environment\:\ \"Dev\"/environment\:\ \"Testing\"/" cdk/config.example.ts > cdk/config.ts
+      - chmod +x cicd-deploy.sh
+      - ./cicd-deploy.sh
+      - newman run _testing/ReinventCatalog.postman_collection.json -e _testing/Testing.postman_environment.json
+      - npm run citest
+  post_build:
+    commands:
+      - chmod +x cicd-destroy.sh
+      - ./cicd-destroy.sh
