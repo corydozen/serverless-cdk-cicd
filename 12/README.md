@@ -120,7 +120,7 @@ You should be able to
 ```sh
 cd ~/projects
 rm -rf my-cdk-project
-git clone https://git-codecommit.us-east-1.amazonaws.com/repos/my-cdk-project
+git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/my-cdk-project
 cp -R serverless-cdk-cicd/12/. my-cdk-project/
 cd my-cdk-project
 git add .

@@ -5,6 +5,11 @@ import dynamodb = require("@aws-cdk/aws-dynamodb");
 import iam = require("@aws-cdk/aws-iam");
 import fs = require("fs");
 
+import { config } from "../config";
+
+const proj = config.projectname;
+const env = config.environment;
+
 interface PropsFromCognito {
   userpool: cognito.UserPool;
   identitypool: cognito.CfnIdentityPool;

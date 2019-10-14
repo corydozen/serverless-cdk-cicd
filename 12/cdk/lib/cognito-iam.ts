@@ -3,6 +3,11 @@ import cognito = require("@aws-cdk/aws-cognito");
 import iam = require("@aws-cdk/aws-iam");
 import appsync = require("@aws-cdk/aws-appsync");
 
+import { config } from "../config";
+
+const proj = config.projectname;
+const env = config.environment;
+
 interface PropsFromAppsync {
   api: appsync.CfnGraphQLApi;
 }
