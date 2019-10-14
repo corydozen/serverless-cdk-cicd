@@ -5,7 +5,7 @@ phases:
       nodejs: 10
     commands:
       - npm i -g aws-cdk newman
-      - mkdir _testing build
+      - mkdir build
       - 'curl --location --request GET "https://api.getpostman.com/collections/141384-a44305f1-37cd-44bc-ba3d-721bf6b1b634" --header "X-Api-Key: $POSTMANAPIKEY" -o _testing/Todos.postman_collection.json'
   build:
     commands:
