@@ -111,14 +111,23 @@ You should be able to
 
 ```sh
 cd ~/projects
-rm -rf my-cdk-project/*
+rm -rf my-cdk-project
+git clone https://git-codecommit.us-east-1.amazonaws.com/repos/my-cdk-project
 cp -R serverless-cdk-cicd/12/. my-cdk-project/
+cd my-cdk-project
 git add .
 git commit -m "running buildspec"
-git push
+git push --set-upstream origin master
 ```
 
-and then watch it go in your [CodeBuild Console](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1)
+Make sure that `https` URI matches the repo that you created.
+
+You'll need to enter the Git Credentials that you created way back in [Step 1](#git-creds).
+
+And then go to your [CodeBuild Console](https://us-east-1.console.aws.amazon.com/codesuite/codebuild/projects?region=us-east-1) and select your Build.
+
+Click `Start Build`
+![CodeBuild Additional Configuration](../images/67_CodeBuild_Start_Build.png)
 
 ### Conclusion
 

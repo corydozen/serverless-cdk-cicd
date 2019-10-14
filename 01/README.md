@@ -97,7 +97,7 @@ To create a new repository...
 1. Your csv should look something like this
    ![Downloaded Credentials](../images/12_Git_Credentials_Csv.png)
 
-You'll need this username and password in the next step
+You'll need this username and password in the next step, and also [Step 12](../12#run)
 
 [Here is the official AWS documentation for creating git credentials](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-gc.html?icmpid=docs_acc_console_connect_np)
 
