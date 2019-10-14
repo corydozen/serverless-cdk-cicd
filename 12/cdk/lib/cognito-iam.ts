@@ -96,7 +96,7 @@ export class CognitoIam extends cdk.Stack {
         },
         "sts:AssumeRoleWithWebIdentity"
       ),
-      roleName: `aTodoAuthRole`,
+      roleName: `a${proj}${env}AuthRole`,
       inlinePolicies: {
         cognitoAuthPolicyDocument: cognitoAuthPolicyDocument
       }
