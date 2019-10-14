@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MySignIn normal case render correctly with Props signIn, signedOut or signedUp 1`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with Props signIn, signedOut or signedUp 2`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with Props signIn, signedOut or signedUp 3`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with Props signIn, signedOut or signedUp 4`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with hide 1`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with hide 2`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with hide 3`] = `ShallowWrapper {}`;
+
+exports[`MySignIn normal case render correctly with hide 4`] = `ShallowWrapper {}`;
+
+exports[`MySignIn null case with other authState render corrently 1`] = `ShallowWrapper {}`;
+
+exports[`MySignIn null case with other authState render corrently 2`] = `ShallowWrapper {}`;
+
+exports[`MySignIn null case with other authState render corrently 3`] = `ShallowWrapper {}`;
+
+exports[`MySignIn null case with other authState render corrently 4`] = `ShallowWrapper {}`;
+
+exports[`MySignIn null case with other authState render corrently 5`] = `ShallowWrapper {}`;
+
+exports[`MySignIn null case with other authState render corrently 6`] = `ShallowWrapper {}`;

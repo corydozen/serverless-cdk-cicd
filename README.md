@@ -4,7 +4,30 @@
 
 This will be a series of blog posts in which I will build a serverless `todo` app, CICD'ed, ready for iterative development.
 
-Proposed technologies:
+# Assumptions
+
+In this series, I'll use AWS's CDK to build out a serverless application. I will assume that the reader ...
+
+1. understands how to develop hosted software using a frontend web client to call a backend api that uses authentication and a database
+1. is not afraid of the command line
+1. has a credit card (I promise you won't be charged much. Probably nothing.)
+
+# Steps
+
+1. [Setup CDK and CodeCommit](01/)
+1. [DynamoDb](02/)
+1. [Cognito](03/)
+1. [Lambda](04/)
+1. [Test what we have so far](05/)
+1. [Appsync](06/)
+1. [Cognito Permissions](07/)
+1. [React / Redux / React Router / Amplify](08/)
+1. [S3 Static Hosted Site](09/)
+1. [Enzyme testing](10/)
+1. [Postman](11/)
+1. CodeBuild
+
+# Here are some of the services I'll be using
 
 - AWS CDK
 - AWS DynamoDb
@@ -26,17 +49,6 @@ I will be exploring this project as I go. So, it may not reach it's destination.
 I'm going to try to avoid doing [this](https://www.youtube.com/watch?v=MAlSjtxy5ak).
 
 If you want to know a bit more about how I ended up here, read on. If not, go ahead and skip to [Step 1](01/).
-
-# Steps
-
-1. [Setup CDK and CodeCommit](01/)
-1. DynamoDb
-1. Cognito
-1. Appsync
-1. React / Redux / React Router
-1. S3 Static Hosted Site
-1. Enzyme testing
-1. Postman
 
 # A Journey to Serverless
 
@@ -62,10 +74,4 @@ But then I learned about "serverless." The concept is that you just write your c
 
 So, that's the allure of Serverless. It allows the software architect to focus on architecting software, while worrying less about maintaining the underlying scaffolding of hardware and dependency software.
 
-### Assumptions
-
-In this series, I'll use AWS's CDK to build out a serverless application. I will assume that the reader ...
-
-1. understands how to develop hosted software using a frontend web client to call a backend api that uses authentication and a database
-1. is not afraid of the command line
-1. has a credit card (I promise you won't be charged much. Probably nothing.)
+If you're interested how the rubber meets the road, head on over to [Step 1](01/).
