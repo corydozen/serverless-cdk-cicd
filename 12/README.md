@@ -143,6 +143,9 @@ Then leave all the defaults in place and click `Start build`
 You can then watch the build's logs in the web browser
 ![CodeBuild Log](../images/69_CodeBuild_Log.png)
 
+If things go well, you should see something like this in your output...
+![CodeBuild Success](../images/73_CodeBuild_Success.png)
+
 ### Conclusion
 
 We made it! We now have a process runner building out our infrastructure, running our tests, and telling us whether they failed or succeeded! Yay!
