@@ -93,7 +93,7 @@ I want a pretty lax password policy for this project. I don't want to require an
 Unfortunately, the folks in charge of the Cognito CDK npm package didn't expose any methods for implementing a non-default password policy configuration. However! If we dive under the hood a bit, we can figure it out.
 
 When you create a `new cognito.UserPool`, there is a child object called `node` and that object has a child object named `defaultChild`. This is not exposed in the typescript libraries, so your IDE may bark at you. But if you look at the first line in the snippet below, you can see that I'm casting this default child as a `CfnUserPool`.
-When you see a CDK class that with a `Cfn` prefix, it means that it is a CloudFormation resource. It's not quite as nice as a CDK resource, because you have to be a bit more verbose. But sometimes it's the only implemented way to get what you need.
+When you see a CDK class with a `Cfn` prefix, it means that it is a CloudFormation resource. It's not quite as nice as a CDK resource, because you have to be a bit more verbose. But sometimes it's the only implemented way to get what you need.
 Anyways, I can attach my desired policy configuration to this `CfnUserPool` and we're on our way.
 
 WARNING: I haven't seen this documented anywhere, so I'd say it could be in danger of having a breaking change on any release.
