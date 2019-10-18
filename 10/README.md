@@ -24,7 +24,7 @@ node parseAwsOutputs.js src/config.js
 npm run build
 ```
 
-Then, copy the webclientid and the userpoolid from the output - and paste them into the following
+Then, copy the webclientid and the userpoolid from the src/config.js file that you just created - and paste them into the following
 
 ```sh
 aws cognito-idp sign-up --region us-east-1 --client-id YOURWEBCLIENTID --username admin@example.com --password Passw0rd! --user-attributes '[{"Name":"custom:first_name","Value":"Admin"},{"Name":"custom:last_name","Value":"Istrator"}]'
