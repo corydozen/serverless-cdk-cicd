@@ -8,12 +8,24 @@ First, you create a `bucket`, and then you can store files inside it.
 
 What's more, you can set a property on the bucket that turns it into a website! [More info](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html). In this blog post, we'll host our front end site in this way.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/09/. my-cdk-project/
+cp -R serverless-cdk-cicd/08/. my-cdk-project/
+cd my-cdk-project/cdk/assets/lambda/create-user
+npm i
+cd ../../..
+npm i
+npm run build && cdk synth
+cdk deploy Todo*
+cdk deploy TodoCognito --require-approval never &> ../cdkdeployresult_cognito.txt
+cdk deploy TodoAppsync --require-approval never &> ../cdkdeployresult_appsync.txt
+cd ..
+npm i
+echo "export default {};" > src/config.js
+node parseAwsOutputs.js src/config.js
 ```
 
 ### Steps
@@ -100,7 +112,7 @@ Then I created a CloudFormation Output because I wanted to be able to visit this
 ```sh
 cd cdk
 npm run build && cdk synth
-cdk deploy
+cdk deploy TodoS3
 ```
 
 You should see some output that looks like this

@@ -6,15 +6,17 @@ Cognito is an AWS service that handles user authentication for web or native app
 
 For this project, I don't want to have to re-invent the wheel and figure out how to let users login, change their password, etc. And I don't have to because AWS offers Cognito, which packages up all of these reoccuring needs.
 
-If you're not interested, you can completely skip over everything in this post by simply copying the directory into your project like so...
+If you want to skip over the previous step, please complete the [first step](../01). And then do the following:
 
-```
+```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/03/. my-cdk-project/
+cp -R serverless-cdk-cicd/02/. my-cdk-project/
+cd my-cdk-project/cdk
+npm i
+npm run build && cdk synth
+cdk deploy
 ```
-
-But if you want to know why, here are the steps I took
 
 ## Steps
 

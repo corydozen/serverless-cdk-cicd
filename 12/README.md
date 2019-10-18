@@ -6,13 +6,7 @@
 
 In this final (for now) post, we're going to set up CodeBuild to build out a `Testing` environment for our infrastructure and run our back-end and front-end tests.
 
-As always, you can skip over all of this by just copying the directory into your project
-
-```sh
-cd ~/projects
-rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/12/. my-cdk-project/
-```
+The only prerequisites for this step are [the first step](../01), and [step 11](../11). So if you want to skip everything else, just make sure you've done those two.
 
 ## Steps
 

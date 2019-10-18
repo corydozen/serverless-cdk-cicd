@@ -6,12 +6,25 @@ Appsync is AWS's managed GraphQL API service. If you're familiar with API Gatewa
 
 We will need an API for our front end to communicate to our data layer.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/06/. my-cdk-project/
+cp -R serverless-cdk-cicd/05/. my-cdk-project/
+cd my-cdk-project/cdk/assets/lambda/create-user
+npm i
+cd ../../..
+npm i
+npm run build && cdk synth
+cdk deploy Todo*
+```
+
+Then, copy the webclientid and the userpoolid from the output - and paste them into the following
+
+```sh
+aws cognito-idp sign-up --region us-east-1 --client-id YOURWEBCLIENTID --username admin@example.com --password Passw0rd! --user-attributes '[{"Name":"custom:first_name","Value":"Admin"},{"Name":"custom:last_name","Value":"Istrator"}]'
+aws cognito-idp admin-confirm-sign-up --region us-east-1 --user-pool-id YOURUSERPOOLID --username admin@example.com
 ```
 
 ### Steps
@@ -424,7 +437,7 @@ new cdk.CfnOutput(this, "apiurl", {
 You can test your query by going to your [Appsync Console](https://console.aws.amazon.com/appsync/home?region=us-east-1#/apis), and clicking on your API. Then click on Queries, and then Login with User Pools
 ![Appsync Queries](../images/28_Appsync_Queries.png)
 
-Remember your userpoolclientid? And that user we created? Enter those values in the popup. For me it was
+Remember your webclientid? And that user we created? Enter those values in the popup. For me it was
 `6e63ck816j0ep7gi5n1fbtsp6b`
 `admin@example.com`
 `Passw0rd!`

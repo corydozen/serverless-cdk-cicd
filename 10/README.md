@@ -4,12 +4,31 @@
 
 [Enzyme](https://github.com/airbnb/enzyme) is a JavaScript Testing utility for React that makes it easier to test your React Components' output.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/10/. my-cdk-project/
+cp -R serverless-cdk-cicd/09/. my-cdk-project/
+cd my-cdk-project/cdk/assets/lambda/create-user
+npm i
+cd ../../..
+npm i
+npm run build && cdk synth
+cdk deploy TodoCognito --require-approval never &> ../cdkdeployresult_cognito.txt
+cdk deploy TodoAppsync --require-approval never &> ../cdkdeployresult_appsync.txt
+cd ..
+npm i
+echo "export default {};" > src/config.js
+node parseAwsOutputs.js src/config.js
+npm run build
+```
+
+Then, copy the webclientid and the userpoolid from the output - and paste them into the following
+
+```sh
+aws cognito-idp sign-up --region us-east-1 --client-id YOURWEBCLIENTID --username admin@example.com --password Passw0rd! --user-attributes '[{"Name":"custom:first_name","Value":"Admin"},{"Name":"custom:last_name","Value":"Istrator"}]'
+aws cognito-idp admin-confirm-sign-up --region us-east-1 --user-pool-id YOURUSERPOOLID --username admin@example.com
 ```
 
 ## Steps

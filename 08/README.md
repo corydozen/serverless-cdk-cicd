@@ -4,12 +4,25 @@
 
 I'll be using React, Redux, and React Router for the front end.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/08/. my-cdk-project/
+cp -R serverless-cdk-cicd/07/. my-cdk-project/
+cd my-cdk-project/cdk/assets/lambda/create-user
+npm i
+cd ../../..
+npm i
+npm run build && cdk synth
+cdk deploy Todo*
+```
+
+Then, copy the webclientid and the userpoolid from the output - and paste them into the following
+
+```sh
+aws cognito-idp sign-up --region us-east-1 --client-id YOURWEBCLIENTID --username admin@example.com --password Passw0rd! --user-attributes '[{"Name":"custom:first_name","Value":"Admin"},{"Name":"custom:last_name","Value":"Istrator"}]'
+aws cognito-idp admin-confirm-sign-up --region us-east-1 --user-pool-id YOURUSERPOOLID --username admin@example.com
 ```
 
 ## Steps
@@ -93,7 +106,7 @@ Now, our local build is connected to all that AWS infrastructure that we set up.
 
 You can try using the existing `admin@example.com` (`Passw0rd!`) account. It will kinda work, but not fully because the email address hasn't been verified. So let's just create a new user.
 
-Click on `Create Account` to create a new user. Enter your email address, a password, and some info for `first name` and `last name`. That should trigger Cognito to send you and email with a verification code. Find that email, put it in the next prompt, and you should be logged into your site!
+Click on `Create Account` to create a new user. Enter your email address, a password, and some info for `first name` and `last name`. That should trigger Cognito to send you and email with a verification code. Find that email, put its code in the next prompt, and you should be logged into your site!
 
 ### Conclusion <a name="conclusion"></a>
 

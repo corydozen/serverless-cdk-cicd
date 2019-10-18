@@ -5,12 +5,18 @@
 In order for our Cognito IdentityPool to make calls to our API, we have to give it two roles: one for authenticated calls and one for unauthenticated calls. Unfortunately, we couldn't establish these roles when we set up the IdentityPool because we didn't have our API yet. It's a chicken/egg problem.
 So, the way I've resolved it is to build a second Cognito Stack that merely tacks on the two roles that our IdentityPool needs, referencing our API.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/07/. my-cdk-project/
+cp -R serverless-cdk-cicd/06/. my-cdk-project/
+cd my-cdk-project/cdk/assets/lambda/create-user
+npm i
+cd ../../..
+npm i
+npm run build && cdk synth
+cdk deploy Todo*
 ```
 
 ### Steps

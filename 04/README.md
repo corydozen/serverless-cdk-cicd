@@ -8,12 +8,16 @@ I'd like to write an entry to my DynamoDb table any time a user signs up and the
 
 I'd also like to capture some custom data when a user signs up. Specifically, their first name and last name.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/04/. my-cdk-project/
+cp -R serverless-cdk-cicd/03/. my-cdk-project/
+cd my-cdk-project/cdk
+npm i
+npm run build && cdk synth
+cdk deploy Todo*
 ```
 
 But if you want an explanation, here are the steps I took

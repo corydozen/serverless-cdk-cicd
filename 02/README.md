@@ -6,15 +6,7 @@ DynamoDb is AWS's NoSQL database service. [Here is AWS's overview](https://aws.a
 
 For this project, I'll be using DynamoDb to persist data. There are other options, like [RDS](https://aws.amazon.com/rds/), or running an [EC2](https://aws.amazon.com/ec2/) instance with MySQL or Postgres. But I chose DynamoDb for its ease of infrastructure management, its speed, and its low cost.
 
-For this step and all the rest of the steps in this blog series, you can completely skip over everything by simply copying the directory into your project like so...
-
-```sh
-cd ~/projects
-rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/02/. my-cdk-project/
-```
-
-But if you want to know why, here are the steps I took
+Please be sure you've completed everything in [step 1](../01) before proceeding.
 
 ## Steps
 
@@ -140,21 +132,21 @@ DynamoDb has a nifty new(ish) feature called auto scaling. Basically, it means y
 
 ```js
 const readScaling = table.autoScaleReadCapacity({
-   minCapacity: 1,
-   maxCapacity: 50
+  minCapacity: 1,
+  maxCapacity: 50
 });
 
 const writeScaling = table.autoScaleWriteCapacity({
-   minCapacity: 1,
-   maxCapacity: 50
+  minCapacity: 1,
+  maxCapacity: 50
 });
 
 readScaling.scaleOnUtilization({
-   targetUtilizationPercent: 70
+  targetUtilizationPercent: 70
 });
 
 writeScaling.scaleOnUtilization({
-   targetUtilizationPercent: 70
+  targetUtilizationPercent: 70
 });
 ```
 
@@ -179,4 +171,3 @@ Now you have built a DynamoDb table that autoscales. And its definition is writt
 As I said in the first blog post, I hope this made sense. But if not, hit me up on [twitter](https://twitter.com/murribu), or file an issue/pr on this repo.
 
 If you made it all the way through, you're ready for [Step 3](../03)
-

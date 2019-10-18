@@ -4,12 +4,18 @@
 
 In this post, we will use the aws-cli to create a user in our UserPool. We should then be able to see the user in Cognito, see the record in our DynamoDb table, and view Cloudwatch Logs to see that the Lambda worked.
 
-As always, you can skip over all of this by just copying the directory into your project
+If you want to skip over the previous steps, please complete the [first step](../01). And then do the following:
 
 ```sh
 cd ~/projects
 rm -rf my-cdk-project/*
-cp -R serverless-cdk-cicd/05/. my-cdk-project/
+cp -R serverless-cdk-cicd/04/. my-cdk-project/
+cd my-cdk-project/cdk/assets/lambda/create-user
+npm i
+cd ../../..
+npm i
+npm run build && cdk synth
+cdk deploy Todo*
 ```
 
 ## Steps
