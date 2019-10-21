@@ -1,6 +1,6 @@
 # A Serverless Project
 
-Brought to you by [Dozen Software](dozensoft.com)
+Brought to you by [Dozen Software](https://dozensoft.com/)
 
 ## Blog Post #1 - CDK and Code Commit
 
