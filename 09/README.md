@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #9 - S3 Static Hosted Site
 
 S3 is AWS's object storage service. You can think of it as an infinite hard drive on AWS servers. [More info](https://aws.amazon.com/s3/)

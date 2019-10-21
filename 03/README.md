@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #3 - Cognito
 
 Cognito is an AWS service that handles user authentication for web or native applications. [More info](https://aws.amazon.com/cognito/)

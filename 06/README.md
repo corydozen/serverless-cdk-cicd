@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #6 - Appsync
 
 Appsync is AWS's managed GraphQL API service. If you're familiar with API Gateway, Appsync is very similar, but it is a GraphQL implementation instead of a RESTful implementation. [More info](https://aws.amazon.com/appsync/)

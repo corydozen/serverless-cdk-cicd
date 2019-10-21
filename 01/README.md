@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #1 - CDK and Code Commit
 
 For the first blog post, we're just going to get everything set up so we can have a vessel for our project.

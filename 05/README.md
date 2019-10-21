@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #5 - Test what we have so far
 
 In this post, we will use the aws-cli to create a user in our UserPool. We should then be able to see the user in Cognito, see the record in our DynamoDb table, and view Cloudwatch Logs to see that the Lambda worked.

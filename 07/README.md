@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #7 - Cognito Permissions
 
 In order for our Cognito IdentityPool to make calls to our API, we have to give it two roles: one for authenticated calls and one for unauthenticated calls. Unfortunately, we couldn't establish these roles when we set up the IdentityPool because we didn't have our API yet. It's a chicken/egg problem.

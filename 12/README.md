@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #12 - CodeBuild
 
 [CodeBuild](https://aws.amazon.com/codebuild/) is AWS's fully managed continuous integration service that compiles source code, runs tests, and produces software packages that are ready to deploy. If you've used TravisCI or CircleCI, it's a very similar service.

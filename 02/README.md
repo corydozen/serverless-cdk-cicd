@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #2 - DynamoDb
 
 DynamoDb is AWS's NoSQL database service. [Here is AWS's overview](https://aws.amazon.com/dynamodb/).

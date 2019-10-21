@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #8 - React / Redux / React Router / Amplify
 
 I'll be using React, Redux, and React Router for the front end.

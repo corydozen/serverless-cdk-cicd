@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](dozensoft.com)
+
 ## Blog Post #11 - Postman
 
 [Postman](https://www.getpostman.com/) is a collaboration platform for API development. For this project, we will use it to define API tests that we can send to our Appsync API to make sure our back end functions properly.
