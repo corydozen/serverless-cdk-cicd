@@ -1,5 +1,7 @@
 # A Serverless Project
 
+Brought to you by [Dozen Software](https://dozensoft.com/)
+
 ## Leveraging AWS to build full scale projects without having to manage any servers
 
 This will be a series of blog posts in which I will build a serverless `todo` app, ready to be CICD'ed and iteratively developed.
