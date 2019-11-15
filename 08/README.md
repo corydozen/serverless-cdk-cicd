@@ -77,6 +77,8 @@ echo "export default {};" > src/config.js
 node parseAwsOutputs.js src/config.js
 ```
 
+Note: this was written with a Linux kernel in mind. For Windows users, the commands may look a little different please see [#1](https://github.com/corydozen/serverless-cdk-cicd/issues/1) for a bit more info.
+
 ### Step 3: Add Amplify <a name="amplify"></a>
 
 [Amplify](https://aws-amplify.github.io/docs/) is a project from AWS whose goal is to make it easy and fast to build mobile apps. For this project, we'll be using their API Library and some of their pre-baked React Components.
